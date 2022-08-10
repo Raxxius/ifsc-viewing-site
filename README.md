@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# International Federation of Sports Climbing competition viewing website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This projects goals are to design, develop and launch a website for viewing International Federation of Sports Climbing (IFSC) events, while providing information on the active climbers and a score in realtime. 
 
-## Available Scripts
+Events videos are hosted on YouTube, and YouTube will be the source of the videos. Additional functionality from YouTube will be required to enhance the viewer experience.
 
-In the project directory, you can run:
+## User stories
 
-### `npm start`
+1. I want to enter the site and easily be able to see the avalible competitions.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. When I click on a competition I want to get an overview of current score, which climber is currently climbing and what the scores are.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. As the contest progresses I want to be able to see the scoreboard update in real time.
 
-### `npm test`
+4. I want to have access to the details of the current climber, including access to their social media sites.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+5. I want my position saved so that if I leave the site and return I can continue watching at the position that I left.
 
-### `npm run build`
+## Site design, existing site research
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+For this section of project, I reviewed a number of existing sites for design ideas, assess them in terms of the user stories and looked at strengths and weaknesses.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## YouTube
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+YouTube is an American online video sharing and social media platform (Wikipedia) https://en.wikipedia.org/wiki/YouTube
 
-### `npm run eject`
+YouTube is a highly popular and successful website for uploading and sharing videos. Youtube also has livesteaming services with a chat system, comments and other video suggestions
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![YouTube overview](public/assets/images/youtube_overview.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+YouTubes layout is iconic and often imitated by other sites. As a site who's main goal is video sharing, additional features are present.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Video section with inbuilt tools
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The largest single application area of the website, the video section comes with an inbuilt tool system for moving through the video, displaying subtitles and metrics.
 
-## Learn More
+2. Live chat area
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+There is a chat feature, that in real time allows people to communicate with each other while watching the video. In this specific circumstance the live chat is disabled.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Further information section (static design)
 
-### Code Splitting
+Below the video section is a summary of the video, there is an icon, and text + hyperlinks. This section is static, and while it can be expanded or contracted as required it will not change throughout the video
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. Additional videos (algorithm derived)
 
-### Analyzing the Bundle Size
+This area is either a. predeterimed list, or b. based on the YouTube of the next video to watch.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![YouTube breakdown](public/assets/images/youtube_pois.png)
 
-### Making a Progressive Web App
+### YouTube assesment for project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+from the required UserStories, YouTube has the following assesement
 
-### Advanced Configuration
+:heavy_check_mark: I want to enter the site and easily be able to see the avalible competitions.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+-[] When I click on a competition I want to get an overview of current score, which climber is currently climbing and what the scores are.
 
-### Deployment
+-[] As the contest progresses I want to be able to see the scoreboard update in real time.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+-[] I want to have access to the details of the current climber, including access to their social media sites.
 
-### `npm run build` fails to minify
+-[x] I want my position saved so that if I leave the site and return I can continue watching at the position that I left.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [x] test
