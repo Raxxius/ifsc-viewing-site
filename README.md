@@ -4,7 +4,7 @@ This projects goals are to design, develop and launch a website for viewing Inte
 
 Events videos are hosted on YouTube, and YouTube will be the source of the videos. Additional functionality from YouTube will be required to enhance the viewer experience.
 
-## User stories
+# User stories
 
 1. I want to enter the site and easily be able to see the avalible competitions.
 
@@ -16,7 +16,7 @@ Events videos are hosted on YouTube, and YouTube will be the source of the video
 
 5. I want my position saved so that if I leave the site and return I can continue watching at the position that I left.
 
-## Site design, existing site research
+# Site design, existing site research
 
 For this section of project, I reviewed a number of existing sites for design ideas, assess them in terms of the user stories and looked at strengths and weaknesses.
 
@@ -54,12 +54,67 @@ from the required UserStories, YouTube has the following assesement
 
 :heavy_check_mark: I want to enter the site and easily be able to see the avalible competitions.
 
--[] When I click on a competition I want to get an overview of current score, which climber is currently climbing and what the scores are.
+:cross: When I click on a competition I want to get an overview of current score, which climber is currently climbing and what the scores are.
 
--[] As the contest progresses I want to be able to see the scoreboard update in real time.
+:cross: As the contest progresses I want to be able to see the scoreboard update in real time.
 
--[] I want to have access to the details of the current climber, including access to their social media sites.
+:cross: I want to have access to the details of the current climber, including access to their social media sites.
 
--[x] I want my position saved so that if I leave the site and return I can continue watching at the position that I left.
+:heavy_check_mark: I want my position saved so that if I leave the site and return I can continue watching at the position that I left.
 
-- [x] test
+YouTube is inadequate for the user experience as it fails on the score section - requiring the score to be directly accessed outside the video field.
+
+YouTube also has no links to climbers social media, but this could be added to the further information section, although this would clutter the section due to the non-dynamic nature of the section.
+
+## Twitch.tv
+
+Twitch is a livestreaming service that focuses in gaming, but has other areas such as music and just chatting.
+
+### Twitch.tv assesment for project
+
+from the required UserStories, YouTube has the following assesement
+
+:heavy_check_mark: I want to enter the site and easily be able to see the avalible competitions.
+
+:heavy_check_mark: When I click on a competition I want to get an overview of current score, which climber is currently climbing and what the scores are.
+
+:cross: As the contest progresses I want to be able to see the scoreboard update in real time.
+
+:heavy_check_mark: I want to have access to the details of the current climber, including access to their social media sites.
+
+:heavy_check_mark: I want my position saved so that if I leave the site and return I can continue watching at the position that I left.
+
+
+Twitch has a lot of features that match for the project
+
+
+## Lolesport
+
+Another esports site
+
+:heavy_check_mark: I want to enter the site and easily be able to see the avalible competitions.
+
+:heavy_check_mark: When I click on a competition I want to get an overview of current score, which climber is currently climbing and what the scores are.
+
+:heavy_check_mark: As the contest progresses I want to be able to see the scoreboard update in real time.
+
+:heavy_check_mark: I want to have access to the details of the current climber, including access to their social media sites.
+
+:heavy_check_mark: I want my position saved so that if I leave the site and return I can continue watching at the position that I left.
+
+The Lolesport website has all the features match
+
+
+# Website design
+
+The basic layout of the website will comprise 4 components
+
+1. Navbar - floats at the top of the page while scrolling, will allow easy access to the menu.
+
+2. Viewscreen - largest component, direct link to youtube video. Will shrink to bottom left of the screen if scrolled past to climber information section.
+
+3. Current score - dynamically updated with video timestamp via external API.
+
+4. Climber information panel - dynamically update with video timestamp via external API.
+
+
