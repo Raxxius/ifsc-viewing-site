@@ -1,6 +1,6 @@
 function Viewscreen() {
     return (
-      <div className="App">
+      <div className="viewscreen">
         <p> Viewscreen </p>
       </div>
     );

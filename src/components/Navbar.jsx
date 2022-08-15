@@ -2,7 +2,7 @@ import Logo from '../resources/images/logo-ifsc.png'
 
 function Navbar() {
     return (
-      <div className="Navbar">
+      <div className="navbar">
             <img src={Logo} className="logo"/>
             <div className="menu">
                 <p>Competitions</p>

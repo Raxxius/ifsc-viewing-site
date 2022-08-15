@@ -4,14 +4,16 @@
   padding: 0;
 }
 
-.Navbar {
+/** Navbar CSS **/
+
+.navbar {
   background-color: #3C3C3C;
   color: #FFFFFF;
   height: 85px;
   display: flex;
 }
 
-.Navbar p {
+.navbar p {
   margin: auto;
   font-weight: 700;
   font-size: 20px;
@@ -28,4 +30,36 @@
 
 .logo {
   height: 80px;
+}
+
+/** Viewbox CSS **/
+
+.view-box-parent {
+  display: flex;
+}
+
+.view-box-1 {
+  width: 300px;
+}
+
+/** View screen CSS **/
+
+.viewscreen {
+  display: flex;
+  min-height: 640px;
+  background-color: black;
+  color: #FFFFFF;
+  padding: 0;
+  width: auto;
+}
+
+/** Scoreboard CSS **/
+
+.scoreboard {
+  display: flex;
+  background-color: #262626;
+  height: 100%;
+  width: 100%;
+  color: #FFFFFF;
+  font-weight: 700;
 }

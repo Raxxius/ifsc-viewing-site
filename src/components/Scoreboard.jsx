@@ -1,6 +1,6 @@
 function Scoreboard() {
     return (
-      <div className="App">
+      <div className="scoreboard">
         <p> scoreboard</p>
       </div>
     );
