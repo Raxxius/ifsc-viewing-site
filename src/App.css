@@ -40,7 +40,20 @@
 
 .view-box-1 {
   width: 300px;
+  overflow: scroll;
 }
+
+.view-box-1::-webkit-scrollbar {
+  display: none;
+  }
+
+.view-box-2 {
+  overflow: scroll;
+}
+
+.view-box-2::-webkit-scrollbar {
+  display: none;
+  }
 
 /** View screen CSS **/
 
