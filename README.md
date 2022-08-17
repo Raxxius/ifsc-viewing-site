@@ -117,3 +117,11 @@ The basic layout of the website will comprise 4 components
 
 4. Climber information panel - dynamically update with video timestamp via external API.
 
+
+
+
+
+References
+
+usehooks.com for basic REACT hooks
+https://usehooks.com/useWindowSize/

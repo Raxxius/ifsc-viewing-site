@@ -3,15 +3,13 @@ import Navbar from './components/Navbar.jsx'
 import Viewscreen from './components/Viewscreen.jsx'
 import Scoreboard from './components/Scoreboard.jsx'
 import ClimberStat from './components/ClimberStat.jsx'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 
 function App() {
-  const viewBoxHeight = window.innerHeight - 85
-  const style = {
-    height: viewBoxHeight
-  }
+  
+  const style = useViewBoxHeight()
 
   return (
     <div className="App">
@@ -27,6 +25,29 @@ function App() {
       </div>
     </div>
   );
+}
+
+function useViewBoxHeight() {
+  const [viewBoxHeight, setViewBoxHeight] = useState({
+    height: window.innerHeight - 85
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      setViewBoxHeight({
+        height: window.innerHeight - 85
+      });
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  })
+
+  return viewBoxHeight
+
 }
 
 export default App;

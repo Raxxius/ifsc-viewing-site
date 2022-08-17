@@ -1,7 +1,7 @@
 
 function ClimberStat() {
     return (
-      <div className="App">
+      <div className="climberstat">
         <p> climber stats </p>
       </div>
     );
