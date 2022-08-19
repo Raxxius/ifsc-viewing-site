@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 function App() {
   
   const style = useViewBoxHeight()
+  const src = "https://www.youtube.com/embed/NAZycE9agy4"
 
   return (
     <div className="App">
@@ -19,13 +20,16 @@ function App() {
           <Scoreboard />
         </div>
         <div className='view-box-2'>
-          <Viewscreen />
+          <Viewscreen
+            src={src}
+          />
           <ClimberStat />
         </div>
       </div>
     </div>
   );
 }
+
 
 function useViewBoxHeight() {
   const [viewBoxHeight, setViewBoxHeight] = useState({
@@ -40,8 +44,6 @@ function useViewBoxHeight() {
     }
 
     window.addEventListener("resize", handleResize);
-
-    handleResize();
 
     return () => window.removeEventListener("resize", handleResize);
   })

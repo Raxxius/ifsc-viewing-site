@@ -49,6 +49,7 @@
 
 .view-box-2 {
   overflow: scroll;
+  flex-grow: 1;
 }
 
 .view-box-2::-webkit-scrollbar {
@@ -59,11 +60,11 @@
 
 .viewscreen {
   display: flex;
-  min-height: 640px;
   background-color: black;
   color: #FFFFFF;
   padding: 0;
   width: auto;
+  height: calc(75vw / (16/9));
 }
 
 /** Scoreboard CSS **/
