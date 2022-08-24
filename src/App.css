@@ -72,9 +72,15 @@
 
 .scoreboard {
   display: flex;
+  flex-direction: column;
   background-color: #262626;
   height: 100%;
   width: 100%;
   color: #FFFFFF;
   font-weight: 700;
+  overflow: scroll;
+}
+
+.scoreboard::-webkit-scrollbar {
+  display: none;
 }

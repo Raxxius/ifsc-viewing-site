@@ -44,6 +44,7 @@ function ScoreBoulderConstructor(dataFromApi) {
 
 
 const BoulderScore = (props) => {
+  console.log(props)
   const climbers = [] 
   {Object.values(props).forEach(val => {
    climbers.push(<Climber 
@@ -54,6 +55,9 @@ const BoulderScore = (props) => {
   })}
   return (
     <>
+      <div>
+        <p>Boulder {props.boulder}</p>
+      </div>
       {climbers}
     </>
     )
