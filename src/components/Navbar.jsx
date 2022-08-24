@@ -3,7 +3,7 @@ import Logo from '../resources/images/logo-ifsc.png'
 function Navbar() {
     return (
       <div className="navbar">
-            <img src={Logo} className="logo"/>
+            <img src={Logo} className="logo" alt="logo"/>
             <div className="menu">
                 <p>Competitions</p>
                 <p>Climbers</p>
