@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
   margin: 0;
@@ -83,4 +84,27 @@
 
 .scoreboard::-webkit-scrollbar {
   display: none;
+}
+
+.score-event {
+  font-size: medium;
+}
+
+.score-pane {
+  display: flex;
+  justify-content: space-between;
+  color: #858585;
+  width: 75%;
+  margin-left: 10%;
+}
+
+.score-box-holder {
+  display: flex;
+}
+
+.score-box {
+  border: 1px solid #858585;
+  width: 6px;
+  height: 16px;
+  margin: 1px;
 }

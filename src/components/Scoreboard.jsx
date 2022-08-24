@@ -14,7 +14,7 @@ const dataFromApi = {
     "Andrea Kümin",
     "Elena Krasovskaia",
     "Camilla Moroni",
-    "Natalia Grossman"
+    "Natalia Grossman",
   ],
   typeOfClimb: "bouldering",
   numberOfClimbs: 4
@@ -42,9 +42,7 @@ function ScoreBoulderConstructor(dataFromApi) {
   return boulderStats
 }
 
-
 const BoulderScore = (props) => {
-  console.log(props)
   const climbers = [] 
   {Object.values(props).forEach(val => {
    climbers.push(<Climber 
@@ -67,8 +65,10 @@ const Climber = (props) => {
   return (
     <div className="score-pane">
       <p>{props.climberName}</p>
-      <div className="score-box, zone">zone</div>
-      <div className="score-box, top">top</div>
+      <div className="score-box-holder">
+        <div className="score-box"></div>
+        <div className="score-box"></div>
+      </div>
     </div>
   )
 }
@@ -85,7 +85,7 @@ function Score() {
       )
     })
     return (
-      <div>
+      <div className="score-card">
         {boulders}
       </div>
     );
