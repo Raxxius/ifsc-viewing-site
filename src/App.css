@@ -97,6 +97,12 @@
   margin-left: 10%;
 }
 
+.score-title {
+  margin-top: 25px;
+  margin-left: -120px;
+  margin-bottom: 10px;
+}
+
 .score-box-holder {
   display: flex;
 }

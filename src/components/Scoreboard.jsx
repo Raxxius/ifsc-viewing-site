@@ -28,8 +28,8 @@ function ScoreBoulderConstructor(dataFromApi) {
     boulderConstructor.push({
       climberName: dataFromApi.climbers[i],
       isClimbing: false,
-      hasClimbed: true,
-      hasZoned: true,
+      hasClimbed: false,
+      hasZoned: false,
       hasTopped: false,
     })
   }
@@ -54,7 +54,7 @@ const BoulderScore = (props) => {
   })}
   return (
     <>
-      <div>
+      <div className="score-title">
         <p>Boulder {props.boulder}</p>
       </div>
       {climbers}
@@ -65,13 +65,23 @@ const BoulderScore = (props) => {
 const Climber = (props) => {
   let scoreFontStyle;
   if (props.hasClimbed) {
-    scoreFontStyle = {color: '#FFFFFF'}
+    scoreFontStyle = {
+      color: '#FFFFFF',
+      fontWeight:200
+  }
+    
   }
   else if (props.isClimbing) {
-    scoreFontStyle = {color: '#FFBB38'}
+    scoreFontStyle = {
+      color: '#FFBB38',
+      fontWeight: 400
+    }
   }
   else {
-    scoreFontStyle = {color: '#858585'}
+    scoreFontStyle = {
+      color: '#858585',
+      fontWeight: 200
+    }
   }
 
   let scoreBoxZone;
