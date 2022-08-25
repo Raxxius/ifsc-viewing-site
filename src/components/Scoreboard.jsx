@@ -27,8 +27,9 @@ function ScoreBoulderConstructor(dataFromApi) {
   for (let i = 0; i < dataFromApi.climbers.length; i++) {
     boulderConstructor.push({
       climberName: dataFromApi.climbers[i],
-      hasClimbed: "no",
-      hasZoned: false,
+      isClimbing: false,
+      hasClimbed: true,
+      hasZoned: true,
       hasTopped: false,
     })
   }
@@ -62,15 +63,70 @@ const BoulderScore = (props) => {
   }
 
 const Climber = (props) => {
-  return (
+  let scoreFontStyle;
+  if (props.hasClimbed) {
+    scoreFontStyle = {color: '#FFFFFF'}
+  }
+  else if (props.isClimbing) {
+    scoreFontStyle = {color: '#FFBB38'}
+  }
+  else {
+    scoreFontStyle = {color: '#858585'}
+  }
+
+  let scoreBoxZone;
+  if (props.isClimbing || props.hasClimbed) {
+    if (props.hasZoned) {
+      scoreBoxZone = {
+        border: '1px solid #FFBB38',
+        backgroundColor: '#FFBB38'
+      }
+    }
+    else {
+      scoreBoxZone = {
+        border: '1px solid #FFBB38'
+      }
+    }
+  }
+  else {
+    scoreBoxZone = {
+       border: '1px solid #858585'
+    }
+  }
+  
+  let scoreBoxTop;
+  if (props.isClimbing || props.hasClimbed) {
+    if (props.hasTopped) {
+      scoreBoxTop = {
+        border: '1px solid #FFBB38',
+        backgroundColor: '#FFBB38'
+      }
+    }
+    else {
+      scoreBoxTop = {
+        border: '1px solid #FFBB38'
+      }
+    }
+  }
+  else {
+    scoreBoxTop = {
+       border: '1px solid #858585'
+    }
+  }
+
+  if (props.climberName) { return (
     <div className="score-pane">
-      <p>{props.climberName}</p>
+      <p className="score-climber" style={scoreFontStyle}>
+          {props.climberName}
+          </p>
       <div className="score-box-holder">
-        <div className="score-box"></div>
-        <div className="score-box"></div>
+        <div 
+          className="score-box" style={scoreBoxZone}>
+        </div>
+        <div className="score-box" style={scoreBoxTop}></div>
       </div>
     </div>
-  )
+  )}
 }
 
 

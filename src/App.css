@@ -93,7 +93,6 @@
 .score-pane {
   display: flex;
   justify-content: space-between;
-  color: #858585;
   width: 75%;
   margin-left: 10%;
 }
@@ -103,7 +102,6 @@
 }
 
 .score-box {
-  border: 1px solid #858585;
   width: 6px;
   height: 16px;
   margin: 1px;
