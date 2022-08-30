@@ -17,7 +17,8 @@ const dataFromApi = {
     "Natalia Grossman",
   ],
   typeOfClimb: "bouldering",
-  numberOfClimbs: 4
+  numberOfClimbs: 4,
+  climb1: [[false, false, false, false], [false, false, false, false]]
 }
 
 /** Constuctor to create an array of objects with the data from the API */
@@ -169,7 +170,6 @@ function Score() {
     </div>
   }
 }
-
 
 function Scoreboard() {
     return (
