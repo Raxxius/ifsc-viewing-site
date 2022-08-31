@@ -1,11 +1,7 @@
 
-// List of scores test file//
-
-import { toBePartiallyChecked } from "@testing-library/jest-dom/dist/matchers";
-
 /** Constuctor to create an array of objects with the data from the API */
 
-function ScoreBoulderConstructor(dataFromApi) {
+function ScoreBoulderConstructor(dataFromApi, dataFromServer) {
   let boulderConstructor = [];
   for (let i = 0; i < dataFromApi.climbers.length; i++) {
     boulderConstructor.push({
@@ -23,6 +19,7 @@ function ScoreBoulderConstructor(dataFromApi) {
       ...boulderConstructor,
     })
   }
+  console.log(dataFromServer)
   return boulderStats
 }
 
@@ -47,6 +44,7 @@ const BoulderScore = (props) => {
     )
   }
 
+  /** sets the conditional styling of the climbers scoreboard */
 const Climber = (props) => {
   let scoreFontStyle;
   if (props.hasClimbed) {
@@ -109,6 +107,8 @@ const Climber = (props) => {
     }
   }
 
+  /** Individual climber name html constructor */
+
   if (props.climberName) { return (
     <div className="score-pane">
       <p className="score-climber" style={scoreFontStyle}>
@@ -125,10 +125,10 @@ const Climber = (props) => {
 }
 
 
-function Score(props) {
-  const dataFromApi = props.dataFromApi;
-  if (dataFromApi.typeOfClimb === "bouldering") {
-    let boulderConstructor2 = ScoreBoulderConstructor(dataFromApi)
+
+function Score(props) {;
+  if (props.dataFromApi.typeOfClimb === "bouldering") {
+    let boulderConstructor2 = ScoreBoulderConstructor(props.dataFromApi, props.dataFromServer)
     const boulders = boulderConstructor2.map(boulder => {
       return (
         <BoulderScore 
@@ -142,7 +142,7 @@ function Score(props) {
       </div>
     );
   }
-  if (dataFromApi.typeOfClimb === "lead") {
+  if (props.dataFromApi.typeOfClimb === "lead") {
     return (
     <div>
       <h1>Lead</h1>
@@ -162,7 +162,8 @@ function Scoreboard(props) {
         <h1 className="score-event">{props.dataFromApi.event}</h1>
         <h1 className="score-event">{props.dataFromApi.event_underscore}</h1>
         <Score 
-        dataFromApi = {props.dataFromApi}/>
+        dataFromApi = {props.dataFromApi}
+        dataFromServer ={props.dataFromServer}/>
       </div>
     );
   }
