@@ -3,6 +3,7 @@ import Navbar from './components/Navbar.jsx'
 import Viewscreen from './components/Viewscreen.jsx'
 import Scoreboard from './components/Scoreboard.jsx'
 import ClimberStat from './components/ClimberStat.jsx'
+
 import { useEffect, useState } from 'react';
 
 
