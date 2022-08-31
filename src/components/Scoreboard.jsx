@@ -3,24 +3,6 @@
 
 import { toBePartiallyChecked } from "@testing-library/jest-dom/dist/matchers";
 
-/** Fake data to be sent from API */
-
-const dataFromApi = {
-  event: "IFSC World Championships Moscow 2021",
-  event_underscore: "Womens Final",
-  climbers: [
-    "Stasa Gejo",
-    "Brooke Raboutou",
-    "Andrea Kümin",
-    "Elena Krasovskaia",
-    "Camilla Moroni",
-    "Natalia Grossman",
-  ],
-  typeOfClimb: "bouldering",
-  numberOfClimbs: 4,
-  climb1: [[false, false, false, false], [false, false, false, false]]
-}
-
 /** Constuctor to create an array of objects with the data from the API */
 
 function ScoreBoulderConstructor(dataFromApi) {
@@ -43,6 +25,8 @@ function ScoreBoulderConstructor(dataFromApi) {
   }
   return boulderStats
 }
+
+/** builds a scoreboard component for each boulder and populates it with the climber, the top and zone scores */
 
 const BoulderScore = (props) => {
   const climbers = [] 
@@ -141,7 +125,8 @@ const Climber = (props) => {
 }
 
 
-function Score() {
+function Score(props) {
+  const dataFromApi = props.dataFromApi;
   if (dataFromApi.typeOfClimb === "bouldering") {
     let boulderConstructor2 = ScoreBoulderConstructor(dataFromApi)
     const boulders = boulderConstructor2.map(boulder => {
@@ -171,12 +156,13 @@ function Score() {
   }
 }
 
-function Scoreboard() {
+function Scoreboard(props) {
     return (
       <div className="scoreboard">
-        <h1 className="score-event">{dataFromApi.event}</h1>
-        <h1 className="score-event">{dataFromApi.event_underscore}</h1>
-        <Score />
+        <h1 className="score-event">{props.dataFromApi.event}</h1>
+        <h1 className="score-event">{props.dataFromApi.event_underscore}</h1>
+        <Score 
+        dataFromApi = {props.dataFromApi}/>
       </div>
     );
   }
