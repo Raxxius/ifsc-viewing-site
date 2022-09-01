@@ -71,6 +71,7 @@ const dataFromServer = {
 
 function App() {
 
+
   /** Constants */
   
   const style = useViewBoxHeight();
@@ -81,17 +82,27 @@ function App() {
 
   /** React state management functions */
 
-  const isPlaying = (e, time) => {
+  const startPlaying = (e, time) => {
     time = e.target.getCurrentTime();
-    setVideoPlaying(true)
-    setTime(time)
+    setVideoPlaying(true);
+    setTime(time);
   }
-  
 
-  const stopPlaying = () => {
+  const stopPlaying = (e, time) => {
+    time = e.target.getCurrentTime();
     setVideoPlaying(false);
+    setTime(time);
   }
-  
+
+  useEffect(() => {
+    if (videoPlaying) {
+    const interval = setInterval(() => {
+      setTime((prevTime) => prevTime + 1);
+    }, 1000); 
+    return () => clearInterval(interval);
+  }}, [!videoPlaying]);
+
+  /** test code for visability to be removed in final build */
   function TestTrue(props) {
     if (props.videoPlaying) {
       return (
@@ -104,10 +115,11 @@ function App() {
   )}
   }
   
+
   /** core render section */
 
-
   return (
+
     <div className="App">
       <Navbar />
       <div className="view-box-parent" style={style}> 
@@ -121,9 +133,8 @@ function App() {
         <div className='view-box-2'>
           <Viewscreen
             src={src}
-            isPlaying={isPlaying}
+            startPlaying={startPlaying}
             stopPlaying={stopPlaying}
-            videoPlaying={setVideoPlaying}
             time={time}
           />
           <div>
@@ -140,7 +151,8 @@ function App() {
     </div>
   );
 }
-date
+
+
 /** Viewbox auto size readjuster */
 
 function useViewBoxHeight() {
@@ -161,7 +173,6 @@ function useViewBoxHeight() {
   })
 
   return viewBoxHeight
-
 }
 
 export default App;

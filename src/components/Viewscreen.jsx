@@ -15,7 +15,7 @@ function Viewscreen(props) {
           opts= {opts} 
           style={{width: '100%'}} 
           onStateChange={(e) => props.stopPlaying(e, props.time)}
-          onPlay={(e) => props.isPlaying(e, props.time)}
+          onPlay={(e) => props.startPlaying(e, props.time)}
           />
     );
   }
