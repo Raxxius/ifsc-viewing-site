@@ -6,12 +6,6 @@ const opts = {
   width: '100%'
 }
 
-const checkElapsedTime = (e) => {
-  const duration = e.target.getDuration();
-  const currentTime = e.target.getCurrentTime();
-  console.log(duration, currentTime)
-}
-
 
 function Viewscreen(props) {
     return (
@@ -20,7 +14,9 @@ function Viewscreen(props) {
           videoId={props.src} 
           opts= {opts} 
           style={{width: '100%'}} 
-          onStateChange={(e) => checkElapsedTime(e)}/>
+          onStateChange={(e) => props.stopPlaying(e, props.time)}
+          onPlay={(e) => props.isPlaying(e, props.time)}
+          />
     );
   }
 

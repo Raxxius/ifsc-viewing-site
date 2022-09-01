@@ -3,7 +3,7 @@ import Navbar from './components/Navbar.jsx'
 import Viewscreen from './components/Viewscreen.jsx'
 import Scoreboard from './components/Scoreboard.jsx'
 import ClimberStat from './components/ClimberStat.jsx'
-
+import React from 'react'
 import { useEffect, useState } from 'react';
 
 
@@ -22,6 +22,7 @@ const dataFromApi = {
   ],
   typeOfClimb: "bouldering",
   numberOfClimbs: 4,
+  src: "NAZycE9agy4",
 }
 
 const dataFromServer = {
@@ -65,10 +66,46 @@ const dataFromServer = {
   },
 }
 
+
+
+
 function App() {
+
+  /** Constants */
   
-  const style = useViewBoxHeight()
-  const src = "NAZycE9agy4"
+  const style = useViewBoxHeight();
+  const src = dataFromApi.src;
+  const [time, setTime] = React.useState(0);
+  const [videoPlaying, setVideoPlaying] = React.useState(false);
+
+
+  /** React state management functions */
+
+  const isPlaying = (e, time) => {
+    time = e.target.getCurrentTime();
+    setVideoPlaying(true)
+    setTime(time)
+  }
+  
+
+  const stopPlaying = () => {
+    setVideoPlaying(false);
+  }
+  
+  function TestTrue(props) {
+    if (props.videoPlaying) {
+      return (
+    <span>Video is playing</span>
+    )
+  }
+  else {
+  
+    return (<span> video is not playing</span>
+  )}
+  }
+  
+  /** core render section */
+
 
   return (
     <div className="App">
@@ -78,19 +115,33 @@ function App() {
           <Scoreboard 
           dataFromServer={dataFromServer}
           dataFromApi={dataFromApi}
+          time={time}
           />
         </div>
         <div className='view-box-2'>
           <Viewscreen
             src={src}
+            isPlaying={isPlaying}
+            stopPlaying={stopPlaying}
+            videoPlaying={setVideoPlaying}
+            time={time}
           />
+          <div>
+            {time}
+          </div>
+          <div>
+          <TestTrue 
+          videoPlaying={videoPlaying}
+          />
+          </div>
           <ClimberStat />
         </div>
       </div>
     </div>
   );
 }
-
+date
+/** Viewbox auto size readjuster */
 
 function useViewBoxHeight() {
   const [viewBoxHeight, setViewBoxHeight] = useState({

@@ -1,7 +1,7 @@
 
 /** Constuctor to create an array of objects with the data from the API */
 
-function ScoreBoulderConstructor(dataFromApi, dataFromServer) {
+function ScoreBoulderConstructor(dataFromApi) {
   let boulderConstructor = [];
   for (let i = 0; i < dataFromApi.climbers.length; i++) {
     boulderConstructor.push({
@@ -19,7 +19,13 @@ function ScoreBoulderConstructor(dataFromApi, dataFromServer) {
       ...boulderConstructor,
     })
   }
-  console.log(dataFromServer)
+  return boulderStats
+}
+
+/** Updates the boulderstats from the constructor using the timestamp information from the server */
+
+const UpdateBoulderScores = (boulderStats, data) => {
+  console.log(data.boulder1)
   return boulderStats
 }
 
@@ -45,6 +51,7 @@ const BoulderScore = (props) => {
   }
 
   /** sets the conditional styling of the climbers scoreboard */
+
 const Climber = (props) => {
   let scoreFontStyle;
   if (props.hasClimbed) {
@@ -128,7 +135,8 @@ const Climber = (props) => {
 
 function Score(props) {;
   if (props.dataFromApi.typeOfClimb === "bouldering") {
-    let boulderConstructor2 = ScoreBoulderConstructor(props.dataFromApi, props.dataFromServer)
+    let boulderConstructor2 = ScoreBoulderConstructor(props.dataFromApi)
+    boulderConstructor2 = UpdateBoulderScores(boulderConstructor2, props.dataFromServer)
     const boulders = boulderConstructor2.map(boulder => {
       return (
         <BoulderScore 
@@ -162,8 +170,9 @@ function Scoreboard(props) {
         <h1 className="score-event">{props.dataFromApi.event}</h1>
         <h1 className="score-event">{props.dataFromApi.event_underscore}</h1>
         <Score 
-        dataFromApi = {props.dataFromApi}
-        dataFromServer ={props.dataFromServer}/>
+          dataFromApi = {props.dataFromApi}
+          dataFromServer = {props.dataFromServer}
+        />
       </div>
     );
   }
