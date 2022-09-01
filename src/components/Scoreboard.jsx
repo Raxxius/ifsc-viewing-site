@@ -1,5 +1,30 @@
+import { useEffect, useState } from 'react';
 
 /** Constuctor to create an array of objects with the data from the API */
+
+function ScoreBoardConstructor(dataFromApi) {
+  if (dataFromApi.typeOfClimb === "bouldering") {
+    let boulderConstructor = [];
+    for (let i = 0; i < dataFromApi.climbers.length; i++) {
+      boulderConstructor.push({
+        climberName: dataFromApi.climbers[i],
+        isClimbing: false,
+        hasClimbed: false,
+        hasZoned: false,
+        hasTopped: false,
+      })
+    }
+    let boulderStats =[]
+    for (let i = 0; i < dataFromApi.numberOfClimbs; i++) {
+      boulderStats.push({
+        boulder: i + 1,
+        ...boulderConstructor,
+      })
+    }
+    return boulderStats
+  }
+}
+
 
 function ScoreBoulderConstructor(dataFromApi) {
   let boulderConstructor = [];
@@ -52,67 +77,67 @@ const BoulderScore = (props) => {
 
   /** sets the conditional styling of the climbers scoreboard */
 
-const Climber = (props) => {
-  let scoreFontStyle;
-  if (props.hasClimbed) {
-    scoreFontStyle = {
-      color: '#FFFFFF',
-      fontWeight:200
-  }
-    
-  }
-  else if (props.isClimbing) {
-    scoreFontStyle = {
-      color: '#FFBB38',
-      fontWeight: 400
+  const Climber = (props) => {
+    let scoreFontStyle;
+    if (props.hasClimbed) {
+      scoreFontStyle = {
+        color: '#FFFFFF',
+        fontWeight:200
     }
-  }
-  else {
-    scoreFontStyle = {
-      color: '#858585',
-      fontWeight: 200
+      
     }
-  }
+    else if (props.isClimbing) {
+      scoreFontStyle = {
+        color: '#FFBB38',
+        fontWeight: 400
+      }
+    }
+    else {
+      scoreFontStyle = {
+        color: '#858585',
+        fontWeight: 200
+      }
+    }
 
-  let scoreBoxZone;
-  if (props.isClimbing || props.hasClimbed) {
-    if (props.hasZoned) {
-      scoreBoxZone = {
-        border: '1px solid #FFBB38',
-        backgroundColor: '#FFBB38'
+    let scoreBoxZone;
+    if (props.isClimbing || props.hasClimbed) {
+      if (props.hasZoned) {
+        scoreBoxZone = {
+          border: '1px solid #FFBB38',
+          backgroundColor: '#FFBB38'
+        }
+      }
+      else {
+        scoreBoxZone = {
+          border: '1px solid #FFBB38'
+        }
       }
     }
     else {
       scoreBoxZone = {
-        border: '1px solid #FFBB38'
+        border: '1px solid #858585'
       }
     }
-  }
-  else {
-    scoreBoxZone = {
-       border: '1px solid #858585'
-    }
-  }
-  
-  let scoreBoxTop;
-  if (props.isClimbing || props.hasClimbed) {
-    if (props.hasTopped) {
-      scoreBoxTop = {
-        border: '1px solid #FFBB38',
-        backgroundColor: '#FFBB38'
+    
+    let scoreBoxTop;
+    if (props.isClimbing || props.hasClimbed) {
+      if (props.hasTopped) {
+        scoreBoxTop = {
+          border: '1px solid #FFBB38',
+          backgroundColor: '#FFBB38'
+        }
+      }
+      else {
+        scoreBoxTop = {
+          border: '1px solid #FFBB38'
+        }
       }
     }
     else {
       scoreBoxTop = {
-        border: '1px solid #FFBB38'
+        border: '1px solid #858585'
       }
     }
-  }
-  else {
-    scoreBoxTop = {
-       border: '1px solid #858585'
-    }
-  }
 
   /** Individual climber name html constructor */
 
@@ -132,12 +157,18 @@ const Climber = (props) => {
 }
 
 
+/** Core Function */
 
-function Score(props) {;
+
+function Score(props) {
+
+  /**constants */
+
+  const [constructor, setConstructor] = useState(ScoreBoardConstructor(props.dataFromApi))
+  console.log(constructor)
+
   if (props.dataFromApi.typeOfClimb === "bouldering") {
-    let boulderConstructor2 = ScoreBoulderConstructor(props.dataFromApi)
-    boulderConstructor2 = UpdateBoulderScores(boulderConstructor2, props.dataFromServer)
-    const boulders = boulderConstructor2.map(boulder => {
+    const boulders = constructor.map(boulder => {
       return (
         <BoulderScore 
         key={boulder.climberName}

@@ -3,7 +3,6 @@ import Navbar from './components/Navbar.jsx'
 import Viewscreen from './components/Viewscreen.jsx'
 import Scoreboard from './components/Scoreboard.jsx'
 import ClimberStat from './components/ClimberStat.jsx'
-import React from 'react'
 import { useEffect, useState } from 'react';
 
 
@@ -69,13 +68,13 @@ const dataFromServer = {
 
 function App() {
 
-  
+
   /** Constants */
   
   const style = useViewBoxHeight();
   const src = dataFromApi.src;
-  const [time, setTime] = React.useState(0);
-  const [videoPlaying, setVideoPlaying] = React.useState(false);
+  const [time, setTime] = useState(0);
+  const [videoPlaying, setVideoPlaying] = useState(false);
 
 
   /** React state management functions */
