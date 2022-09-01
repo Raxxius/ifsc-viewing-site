@@ -67,11 +67,9 @@ const dataFromServer = {
 }
 
 
-
-
 function App() {
 
-
+  
   /** Constants */
   
   const style = useViewBoxHeight();
