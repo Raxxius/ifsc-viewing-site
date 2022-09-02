@@ -20,9 +20,14 @@ function boulderClimber({...props}, climberNumber, boulderNumber) {
 
 function hasCompleted({...props}, climberNumber, boulderNumber, type) {
   const boulder = props.dataFromServer[boulderNumber-1][`boulder${boulderNumber}`]
-  console.log(boulder[`climber${climberNumber}`][type])  
+  const value = boulder[`climber${climberNumber}`][type]  
+  if (props.time >= value) {
+    return (true)
+  }
+  else {
+    return (false)
+  }
 
-  return (false)
 }
 
 
