@@ -27,17 +27,57 @@ const dataFromApi = {
 const dataFromServer = [
   {
   boulder1: {
+      climber1: {
+        startsclimbing: 787,
+        endsclimbing: 1016,
+        zones: 807,
+        tops: 0
+      },
+      climber2: {
+        startsclimbing: 1065,
+        endsclimbing: 1193,
+        zones: 1102,
+        tops: 1190
+      },
+      climber3: {
+        startsclimbing: 1247,
+        endsclimbing: 1500,
+        zones: 1292,
+        tops: 1452,
+      },
+      climber4: {
+        startsclimbing: 1534,
+        endsclimbing: 1745,
+        zones: 0,
+        tops: 0,
+      },
+      climber5: {
+        startsclimbing: 1785,
+        endsclimbing: 1945,
+        zones: 1806,
+        tops: 1936,
+      },
+      climber6: {
+        startsclimbing: 2003,
+        endsclimbing: 2048,
+        zones: 2022,
+        tops: 2042,
+      },
+    },
+  },
+  {
+  boulder2: {
     climber1: {
-      startsclimbing: 787,
-      endsclimbing: 1016,
-      zones: 807,
+      startsclimbing: 0,
+      endsclimbing: 0,
+      zones: 0,
       tops: 0
     },
     climber2: {
-      startsclimbing: 1065,
-      endsclimbing: 1193,
-      zones: 1102,
-      tops: 1190
+      startsclimbing: 0,
+      endsclimbing: 0,
+      zones: 0,
+      tops: 0
     },
     climber3: {
       startsclimbing: 1247,
@@ -64,7 +104,7 @@ const dataFromServer = [
       tops: 2042,
     },
   },
-  },
+},
 ]
 
 
