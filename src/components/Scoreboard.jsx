@@ -5,16 +5,24 @@ import { useEffect, useState } from 'react';
 /** boulder climber constructor function */
 
 function boulderClimber({...props}, climberNumber, boulderNumber) {
-const climber = {}
-climber.climberName = props.dataFromApi.climbers[climberNumber]
-climber.isClimbing = false
-climber.hasClimbed = false
-climber.hasZoned = false
-climber.hasTopped = false
-console.log(climber)
-  return (
-    climber
-  )
+    const climber = {}
+    climber.climberName = props.dataFromApi.climbers[climberNumber]
+    climber.isClimbing = false
+    climber.hasClimbed = hasCompleted({...props}, climberNumber, boulderNumber, 'endsclimbing')
+    climber.hasZoned = false
+    climber.hasTopped = false
+      return (
+        climber
+    )
+}
+
+/** boulder hasCompleted constructor function */
+
+function hasCompleted({...props}, climberNumber, boulderNumber, type) {
+  const boulder = props.dataFromServer[boulderNumber-1][`boulder${boulderNumber}`]
+  console.log(boulder[`climber${climberNumber}`][type])  
+
+  return (false)
 }
 
 
@@ -25,8 +33,8 @@ function ScoreBoardConstructor({...props}) {
     let boulderConstructor = [];
     boulderConstructor.push({
       boulder1: {
-        climber1: boulderClimber({...props}, 0, 0),
-        climber2: boulderClimber({...props}, 1, 1),
+        climber1: boulderClimber({...props}, 1, 1),
+        climber2: boulderClimber({...props}, 2, 1)
       }
     })
     return boulderConstructor
