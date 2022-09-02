@@ -24,7 +24,8 @@ const dataFromApi = {
   src: "NAZycE9agy4",
 }
 
-const dataFromServer = {
+const dataFromServer = [
+  {
   boulder1: {
     climber1: {
       startsclimbing: 787,
@@ -63,7 +64,8 @@ const dataFromServer = {
       tops: 2042,
     },
   },
-}
+  },
+]
 
 
 function App() {

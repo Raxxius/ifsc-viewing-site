@@ -1,58 +1,43 @@
 import { useEffect, useState } from 'react';
 
-/** Constuctor to create an array of objects with the data from the API */
 
-function ScoreBoardConstructor(dataFromApi) {
-  if (dataFromApi.typeOfClimb === "bouldering") {
+
+/** boulder climber constructor function */
+
+function boulderClimber({...props}, climberNumber, boulderNumber) {
+const climber = {}
+climber.climberName = props.dataFromApi.climbers[climberNumber]
+climber.isClimbing = false
+climber.hasClimbed = false
+climber.hasZoned = false
+climber.hasTopped = false
+console.log(climber)
+  return (
+    climber
+  )
+}
+
+
+/** Constructor for bouldering to create an array of objects with the data from the API */
+
+function ScoreBoardConstructor({...props}) {
+  if (props.dataFromApi.typeOfClimb === "bouldering") {
     let boulderConstructor = [];
-    for (let i = 0; i < dataFromApi.climbers.length; i++) {
-      boulderConstructor.push({
-        climberName: dataFromApi.climbers[i],
-        isClimbing: false,
-        hasClimbed: false,
-        hasZoned: false,
-        hasTopped: false,
-      })
-    }
-    let boulderStats =[]
-    for (let i = 0; i < dataFromApi.numberOfClimbs; i++) {
-      boulderStats.push({
-        boulder: i + 1,
-        ...boulderConstructor,
-      })
-    }
-    return boulderStats
-  }
-}
-
-
-function ScoreBoulderConstructor(dataFromApi) {
-  let boulderConstructor = [];
-  for (let i = 0; i < dataFromApi.climbers.length; i++) {
     boulderConstructor.push({
-      climberName: dataFromApi.climbers[i],
-      isClimbing: false,
-      hasClimbed: false,
-      hasZoned: false,
-      hasTopped: false,
+      boulder1: {
+        climber1: boulderClimber({...props}, 0, 0),
+        climber2: boulderClimber({...props}, 1, 1),
+      }
     })
+    return boulderConstructor
   }
-  let boulderStats =[]
-  for (let i = 0; i < dataFromApi.numberOfClimbs; i++) {
-    boulderStats.push({
-      boulder: i + 1,
-      ...boulderConstructor,
-    })
-  }
-  return boulderStats
 }
 
-/** Updates the boulderstats from the constructor using the timestamp information from the server */
+/** Constructor sub functions for bouldering conditional rendering */
 
-const UpdateBoulderScores = (boulderStats, data) => {
-  console.log(data.boulder1)
-  return boulderStats
-}
+const isClimbing = (i, time, dataFromServer) => {
+  return true
+} 
 
 /** builds a scoreboard component for each boulder and populates it with the climber, the top and zone scores */
 
@@ -75,7 +60,8 @@ const BoulderScore = (props) => {
     )
   }
 
-  /** sets the conditional styling of the climbers scoreboard */
+
+  /** sets the conditional styling of the boulder scoreboard */
 
   const Climber = (props) => {
     let scoreFontStyle;
@@ -139,7 +125,8 @@ const BoulderScore = (props) => {
       }
     }
 
-  /** Individual climber name html constructor */
+
+  /** Individual boulder climber constructor */
 
   if (props.climberName) { return (
     <div className="score-pane">
@@ -162,10 +149,14 @@ const BoulderScore = (props) => {
 
 function Score(props) {
 
+
   /**constants */
 
-  const [constructor, setConstructor] = useState(ScoreBoardConstructor(props.dataFromApi))
-  console.log(constructor)
+  const [constructor, setConstructor] = useState(ScoreBoardConstructor({...props}))
+
+
+
+  /** Boulder specific constructors */
 
   if (props.dataFromApi.typeOfClimb === "bouldering") {
     const boulders = constructor.map(boulder => {
@@ -181,6 +172,10 @@ function Score(props) {
       </div>
     );
   }
+
+
+  /** lead climb specific constructors */
+
   if (props.dataFromApi.typeOfClimb === "lead") {
     return (
     <div>
@@ -188,6 +183,10 @@ function Score(props) {
     </div>
     );
   }
+
+
+  /** error return */
+
   else {
     return <div>
       <h1>Error</h1>
@@ -203,6 +202,7 @@ function Scoreboard(props) {
         <Score 
           dataFromApi = {props.dataFromApi}
           dataFromServer = {props.dataFromServer}
+          time = {props.time}
         />
       </div>
     );
