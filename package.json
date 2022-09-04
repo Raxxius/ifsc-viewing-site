@@ -2,7 +2,7 @@
   "name": "ifsc-viewing-site",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/Raxxius/",
+  "homepage": "https://github.com/Raxxius/ifsc-viewing-site",
   "dependencies": {
     "-": "^0.0.1",
     "@testing-library/jest-dom": "^5.16.5",
