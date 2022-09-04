@@ -257,9 +257,6 @@ function App() {
             time={time}
           />
           <div>
-            {time}
-          </div>
-          <div>
           <TestTrue 
           videoPlaying={videoPlaying}
           />

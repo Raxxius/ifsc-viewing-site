@@ -66,7 +66,7 @@ function ScoreBoardConstructor({...props}) {
 /** builds a scoreboard component for each boulder and populates it with the climber, the top and zone scores */
 
 const BoulderScore = (props) => {
-  const climbers = [] 
+  const climbers = []
   {Object.values(props).forEach(val => {
    climbers.push(<Climber 
         key={val.climberName}
@@ -77,7 +77,7 @@ const BoulderScore = (props) => {
   return (
     <>
       <div className="score-title">
-        <p>Boulder {props.boulder}</p>
+        <p>Boulder </p>
       </div>
       {climbers}
     </>
