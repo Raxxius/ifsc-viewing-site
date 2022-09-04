@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Raxxius/static/css/main.b62226fa.css",
-    "main.js": "/Raxxius/static/js/main.5c3d217b.js",
-    "static/js/787.1e514a88.chunk.js": "/Raxxius/static/js/787.1e514a88.chunk.js",
-    "static/media/logo-ifsc.png": "/Raxxius/static/media/logo-ifsc.c24d42bb50bf5e6cee6b.png",
-    "index.html": "/Raxxius/index.html",
-    "main.b62226fa.css.map": "/Raxxius/static/css/main.b62226fa.css.map",
-    "main.5c3d217b.js.map": "/Raxxius/static/js/main.5c3d217b.js.map",
-    "787.1e514a88.chunk.js.map": "/Raxxius/static/js/787.1e514a88.chunk.js.map"
+    "main.css": "/Raxxius/ifsc-viewing-site/static/css/main.b62226fa.css",
+    "main.js": "/Raxxius/ifsc-viewing-site/static/js/main.f8cd264f.js",
+    "static/js/787.1e514a88.chunk.js": "/Raxxius/ifsc-viewing-site/static/js/787.1e514a88.chunk.js",
+    "static/media/logo-ifsc.png": "/Raxxius/ifsc-viewing-site/static/media/logo-ifsc.c24d42bb50bf5e6cee6b.png",
+    "index.html": "/Raxxius/ifsc-viewing-site/index.html",
+    "main.b62226fa.css.map": "/Raxxius/ifsc-viewing-site/static/css/main.b62226fa.css.map",
+    "main.f8cd264f.js.map": "/Raxxius/ifsc-viewing-site/static/js/main.f8cd264f.js.map",
+    "787.1e514a88.chunk.js.map": "/Raxxius/ifsc-viewing-site/static/js/787.1e514a88.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b62226fa.css",
-    "static/js/main.5c3d217b.js"
+    "static/js/main.f8cd264f.js"
   ]
 }
