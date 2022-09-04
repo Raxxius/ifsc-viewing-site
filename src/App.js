@@ -68,6 +68,86 @@ const dataFromServer = [
   {
   boulder2: {
     climber1: {
+      startsclimbing: 2120,
+      endsclimbing: 2305,
+      zones: 2209,
+      tops: 2299
+    },
+    climber2: {
+      startsclimbing: 2386,
+      endsclimbing: 2500,
+      zones: 2428,
+      tops: 2494
+    },
+    climber3: {
+      startsclimbing: 2560,
+      endsclimbing: 2775,
+      zones: 2617,
+      tops: 0,
+    },
+    climber4: {
+      startsclimbing: 2826,
+      endsclimbing: 2931,
+      zones: 2896,
+      tops: 2929,
+    },
+    climber5: {
+      startsclimbing: 2994,
+      endsclimbing: 3063,
+      zones: 3035,
+      tops: 3060,
+    },
+    climber6: {
+      startsclimbing: 3110,
+      endsclimbing: 3206,
+      zones: 3169,
+      tops: 3203,
+    },
+  },
+},
+{
+  boulder3: {
+    climber1: {
+      startsclimbing: 3336,
+      endsclimbing: 3545,
+      zones: 3352,
+      tops: 0
+    },
+    climber2: {
+      startsclimbing: 3612,
+      endsclimbing: 3832,
+      zones: 0,
+      tops: 0
+    },
+    climber3: {
+      startsclimbing: 3880,
+      endsclimbing: 4113,
+      zones: 0,
+      tops: 0,
+    },
+    climber4: {
+      startsclimbing: 4159,
+      endsclimbing: 4237,
+      zones: 4192,
+      tops: 4233,
+    },
+    climber5: {
+      startsclimbing: 1785,
+      endsclimbing: 1945,
+      zones: 1806,
+      tops: 1936,
+    },
+    climber6: {
+      startsclimbing: 2003,
+      endsclimbing: 2048,
+      zones: 2022,
+      tops: 2042,
+    },
+  },
+},
+{
+  boulder4: {
+    climber1: {
       startsclimbing: 0,
       endsclimbing: 0,
       zones: 0,
