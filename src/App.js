@@ -5,6 +5,7 @@ import Scoreboard from "./components/Scoreboard.jsx";
 import ClimberStat from "./components/ClimberStat.jsx";
 import { useEffect, useState } from "react";
 import { dataFromApi, dataFromServer } from "./tests/testdatafromapi";
+import useViewBoxHeight from "./hooks/useViewBoxHeight";
 
 function App() {
   /** Constants */
@@ -75,28 +76,6 @@ function App() {
       </div>
     </div>
   );
-}
-
-/** Viewbox auto size readjuster */
-
-function useViewBoxHeight() {
-  const [viewBoxHeight, setViewBoxHeight] = useState({
-    height: window.innerHeight - 85,
-  });
-
-  useEffect(() => {
-    function handleResize() {
-      setViewBoxHeight({
-        height: window.innerHeight - 85,
-      });
-    }
-
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  });
-
-  return viewBoxHeight;
 }
 
 export default App;
