@@ -18,7 +18,7 @@ export default function ScoreBoardConstructor({ ...props }) {
           boulderNumber
         );
       }
-      let boulder = `boulder${boulderNumber}`;
+      let boulder = `Boulder ${boulderNumber}`;
       boulderConstructor[boulder] = climbers;
     }
     return boulderConstructor;
