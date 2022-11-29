@@ -27,7 +27,6 @@ function Score(props) {
   if (props.dataFromApi.typeOfClimb === "bouldering") {
     const boulders = [];
     for (const item in constructor) {
-      console.log(constructor[item])
       boulders.push(
         <BoulderScore key={item} passKey={item}  {...constructor[item]} />
       );
