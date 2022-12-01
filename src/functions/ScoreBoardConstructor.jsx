@@ -1,3 +1,5 @@
+import boulderClimber from "./boulderClimber";
+
 /** Constructor for bouldering to create an array of objects with the data from the API */
 
 export default function ScoreBoardConstructor({ ...props }) {
@@ -23,67 +25,115 @@ export default function ScoreBoardConstructor({ ...props }) {
     }
     return boulderConstructor;
   }
+  if (props.dataFromApi.typeOfClimb === "lead") {
+    /** create lead event **/
+    let leadConstructor = [];
+    let climberNameNo = 0;
+    let climberTypeNo = 0;
+    /** create list for first event*/
+    props.dataFromServer.forEach((value) => {
+      /** get number of climbers in event from dataFromSever*/
+      let climbingBracket = Object.keys(value)[0];
+      let noOfClimbers = Object.keys(value[climbingBracket]).length;
+      let climbers = {};
+      for (
+        let climberNumber = 0;
+        climberNumber < noOfClimbers;
+        climberNumber++
+      ) {
+        let name = props.dataFromApi.climbers[climberNameNo];
+        let climberData =
+          value[climbingBracket][`climber${[climberNumber + 1]}`];
+        climbers[`climber${[climberNumber]}`] = leadClimber(
+          { ...props },
+          name,
+          climberData,
+          climberNumber,
+          climbingBracket,
+          climberNameNo,
+          climberTypeNo
+        );
+        climberNameNo++;
+      }
+      leadConstructor[climbingBracket] = climbers;
+      climberTypeNo++;
+    });
+  }
 }
 
-/** boulder climber constructor function */
+/** Lead climb constructor functions */
 
-function boulderClimber({ ...props }, climberNumber, boulderNumber) {
+function leadClimber(
+  { ...props },
+  name,
+  climberData,
+  climberNumber,
+  climbingBracket,
+  climberNameNo,
+  climberTypeNo
+) {
   const climber = {};
-  climber.climberName = props.dataFromApi.climbers[climberNumber];
+  climber.climberName = name;
+
+  const lead =
+    props.dataFromServer[climberTypeNo][climbingBracket][
+      `climber${climberNumber + 1}`
+    ];
+  climber.score = lead.score;
   climber.isClimbing = isClimbing(
     { ...props },
-    climberNumber,
-    boulderNumber,
     "startsclimbing",
     "endsclimbing"
   );
   climber.hasClimbed = hasCompleted(
-    { ...props },
-    climberNumber,
-    boulderNumber,
-    "endsclimbing"
-  );
-  climber.hasZoned = hasCompleted(
-    { ...props },
-    climberNumber,
-    boulderNumber,
-    "zones"
-  );
-  climber.hasTopped = hasCompleted(
-    { ...props },
-    climberNumber,
-    boulderNumber,
-    "tops"
-  );
+    props.time,
+    climberData
+  )
+
+  console.log(climber);
   return climber;
 }
 
-/** boulder hasCompleted constructor function */
-
-function hasCompleted({ ...props }, climberNumber, boulderNumber, type) {
-  const boulder =
-    props.dataFromServer[boulderNumber - 1][`boulder${boulderNumber}`];
-  const value = boulder[`climber${climberNumber + 1}`][type];
-  if (value === 0) {
-    return false;
-  }
-  if (props.time >= value) {
-    return true;
-  } else {
-    return false;
-  }
+function isClimbing() {
+  return false;
 }
 
-/** boulder isClimbing function */
-
-function isClimbing({ ...props }, climberNumber, boulderNumber, start, end) {
-  const boulder =
-    props.dataFromServer[boulderNumber - 1][`boulder${boulderNumber}`];
-  const startclimbing = boulder[`climber${climberNumber + 1}`][start];
-  const endclimbing = boulder[`climber${climberNumber + 1}`][end];
-  if (startclimbing <= props.time && endclimbing >= props.time) {
+function hasCompleted(time, climberData) {
+  const endsClimbing = (climberData.endsclimbing)
+  if (time > endsClimbing) {
     return true;
-  } else {
-    return false;
   }
+  return false
+
 }
+
+/*   const climber = {};
+    climber.climberName = props.dataFromApi.climbers[climberNumber];
+    climber.isClimbing = isClimbing(
+      { ...props },
+      climberNumber,
+      boulderNumber,
+      "startsclimbing",
+      "endsclimbing"
+    );
+    climber.hasClimbed = hasCompleted(
+      { ...props },
+      climberNumber,
+      boulderNumber,
+      "endsclimbing"
+    );
+    climber.hasZoned = hasCompleted(
+      { ...props },
+      climberNumber,
+      boulderNumber,
+      "zones"
+    );
+    climber.hasTopped = hasCompleted(
+      { ...props },
+      climberNumber,
+      boulderNumber,
+      "tops"
+    );
+    return climber;
+  }
+  */

@@ -4,14 +4,14 @@ import Viewscreen from "./components/Viewscreen.jsx";
 import Scoreboard from "./components/Scoreboard.jsx";
 import ClimberStat from "./components/ClimberStat.jsx";
 import { useEffect, useState } from "react";
-import { dataFromApi, dataFromServer } from "./tests/testdatafromapi";
+import { dataFromApi2, dataFromApi1, dataFromServer1, dataFromServer2 } from "./tests/testdatafromapi";
 import useViewBoxHeight from "./hooks/useViewBoxHeight";
 
 function App() {
   /** Constants */
 
   const style = useViewBoxHeight();
-  const src = dataFromApi.src;
+  const src = dataFromApi2.src;
   const [time, setTime] = useState(0);
   const [videoPlaying, setVideoPlaying] = useState(false);
 
@@ -56,8 +56,8 @@ function App() {
       <div className="view-box-parent" style={style}>
         <div className="view-box-1">
           <Scoreboard
-            dataFromServer={dataFromServer}
-            dataFromApi={dataFromApi}
+            dataFromServer={dataFromServer2}
+            dataFromApi={dataFromApi2}
             time={time}
           />
         </div>
