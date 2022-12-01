@@ -1,4 +1,5 @@
 import boulderClimber from "./boulderClimber";
+import leadClimber from "./leadClimber";
 
 /** Constructor for bouldering to create an array of objects with the data from the API */
 
@@ -50,7 +51,6 @@ export default function ScoreBoardConstructor({ ...props }) {
           climberData,
           climberNumber,
           climbingBracket,
-          climberNameNo,
           climberTypeNo
         );
         climberNameNo++;
@@ -58,82 +58,6 @@ export default function ScoreBoardConstructor({ ...props }) {
       leadConstructor[climbingBracket] = climbers;
       climberTypeNo++;
     });
+    return leadConstructor
   }
 }
-
-/** Lead climb constructor functions */
-
-function leadClimber(
-  { ...props },
-  name,
-  climberData,
-  climberNumber,
-  climbingBracket,
-  climberNameNo,
-  climberTypeNo
-) {
-  const climber = {};
-  climber.climberName = name;
-
-  const lead =
-    props.dataFromServer[climberTypeNo][climbingBracket][
-      `climber${climberNumber + 1}`
-    ];
-  climber.score = lead.score;
-  climber.isClimbing = isClimbing(
-    { ...props },
-    "startsclimbing",
-    "endsclimbing"
-  );
-  climber.hasClimbed = hasCompleted(
-    props.time,
-    climberData
-  )
-
-  console.log(climber);
-  return climber;
-}
-
-function isClimbing() {
-  return false;
-}
-
-function hasCompleted(time, climberData) {
-  const endsClimbing = (climberData.endsclimbing)
-  if (time > endsClimbing) {
-    return true;
-  }
-  return false
-
-}
-
-/*   const climber = {};
-    climber.climberName = props.dataFromApi.climbers[climberNumber];
-    climber.isClimbing = isClimbing(
-      { ...props },
-      climberNumber,
-      boulderNumber,
-      "startsclimbing",
-      "endsclimbing"
-    );
-    climber.hasClimbed = hasCompleted(
-      { ...props },
-      climberNumber,
-      boulderNumber,
-      "endsclimbing"
-    );
-    climber.hasZoned = hasCompleted(
-      { ...props },
-      climberNumber,
-      boulderNumber,
-      "zones"
-    );
-    climber.hasTopped = hasCompleted(
-      { ...props },
-      climberNumber,
-      boulderNumber,
-      "tops"
-    );
-    return climber;
-  }
-  */
