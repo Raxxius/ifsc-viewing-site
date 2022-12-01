@@ -1,6 +1,6 @@
 /** Fake data to be sent from API */
 
-export const dataFromApi = {
+export const dataFromApi1 = {
   event: "IFSC World Championships Moscow 2021",
   event_underscore: "Womens Boulder Final",
   climbers: [
@@ -42,7 +42,7 @@ export const dataFromApi2 = {
   src: "EauI682ebv0",
 };
 
-export const dataFromServer = [
+export const dataFromServer1 = [
   {
     boulder1: {
       climber1: {
