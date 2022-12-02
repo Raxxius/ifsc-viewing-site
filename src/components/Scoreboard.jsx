@@ -1,5 +1,6 @@
 import ScoreBoardConstructor from "../functions/ScoreBoardConstructor";
 import { BoulderScore } from "../functions/BoulderScore";
+import { LeadScore } from "../functions/LeadScore";
 
 /** Core Function */
 
@@ -21,14 +22,13 @@ function Score(props) {
   /**constants */
 
   const constructor = ScoreBoardConstructor({ ...props });
-
   /** Boulder specific constructors */
 
   if (props.dataFromApi.typeOfClimb === "bouldering") {
     const boulders = [];
     for (const item in constructor) {
       boulders.push(
-        <BoulderScore key={item} passKey={item}  {...constructor[item]} />
+        <BoulderScore key={item} passKey={item} {...constructor[item]} />
       );
     }
     return <div className="score-card">{boulders}</div>;
@@ -37,11 +37,12 @@ function Score(props) {
   /** lead climb specific constructors */
 
   if (props.dataFromApi.typeOfClimb === "lead") {
-    return (
-      <div>
-        <h1>Lead</h1>
-      </div>
-    );
+    const lead = [];
+    for (const item in constructor) {
+      lead.push(<LeadScore key={item} passKey={item} {...constructor[item]} />);
+    }
+    return <div className="score-card">{lead}</div>;
+
   } else {
     /** error return */
     return (

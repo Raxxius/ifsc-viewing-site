@@ -18,6 +18,7 @@ export default function leadClimber(
   climber.score = lead.score;
   climber.isClimbing = isClimbing(props.time, climberData);
   climber.hasClimbed = hasCompleted(props.time, climberData);
+  climber.timeTaken = climberData.endsclimbing - climberData.startsclimbing
   return climber;
 }
 
