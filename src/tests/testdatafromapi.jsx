@@ -226,7 +226,7 @@ export const dataFromServer2 = [
       climber4: {
         startsclimbing: 1674,
         endsclimbing: 2026,
-        score: "44",
+        score: "44+",
       },
       climber5: {
         startsclimbing: 2207,
@@ -246,7 +246,7 @@ export const dataFromServer2 = [
       climber8: {
         startsclimbing: 3498,
         endsclimbing: 3610,
-        score: "46",
+        score: "46+",
       },
     },
   },
