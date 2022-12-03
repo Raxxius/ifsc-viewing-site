@@ -4,7 +4,12 @@ import Viewscreen from "./components/Viewscreen.jsx";
 import Scoreboard from "./components/Scoreboard.jsx";
 import ClimberStat from "./components/ClimberStat.jsx";
 import { useEffect, useState } from "react";
-import { dataFromApi2, dataFromApi1, dataFromServer1, dataFromServer2 } from "./tests/testdatafromapi";
+import {
+  dataFromApi2,
+  dataFromApi1,
+  dataFromServer1,
+  dataFromServer2,
+} from "./tests/testdatafromapi";
 import useViewBoxHeight from "./hooks/useViewBoxHeight";
 
 function App() {

@@ -9,7 +9,6 @@ export const LeadScore = (props) => {
       val["key"] = key;
       climbers.push(val);
     }
-    // climbers.push(<Climber key={key} {...val} />);
   });
   const notClimbed = [];
   const isClimbing = [];
