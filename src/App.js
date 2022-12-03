@@ -21,6 +21,7 @@ function App() {
     time = e.target.getCurrentTime();
     setVideoPlaying(true);
     setTime(time);
+    console.log("video playing")
   };
 
   const stopPlaying = (e, time) => {
@@ -29,7 +30,7 @@ function App() {
     setTime(time);
   };
 
-  useEffect((time, videoPlaying) => {
+  useEffect(() => {
     if (videoPlaying) {
       const interval = setInterval(() => {
         setTime((prevTime) => prevTime + 1);
@@ -37,12 +38,12 @@ function App() {
       console.log("time is" + time);
       return () => clearInterval(interval);
     }
-  }, []);
+  }, [time, videoPlaying]);
 
   /** test code for visability to be removed in final build */
   function TestTrue(props) {
     if (props.videoPlaying) {
-      return <span>Video is playing</span>;
+      return <span>Video is playing, time is {time}</span>;
     } else {
       return <span> video is not playing</span>;
     }
