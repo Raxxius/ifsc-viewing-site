@@ -1,8 +1,7 @@
 /** builds a scoreboard component for each lead event and populate it with the climber, and conditional rendered score */
 
 export const LeadScore = (props) => {
-
-  let climbers = []
+  let climbers = [];
   Object.values(props).forEach((val) => {
     if (`${props.passKey}${val.climberName}` !== `${props.passKey}undefined`) {
       const key = `${props.passKey}${val.climberName}`;
@@ -31,7 +30,9 @@ export const LeadScore = (props) => {
   climbers = hasClimbed.concat(isClimbing, notClimbed);
   const returnClimbers = [];
   climbers.forEach((val) => {
-    returnClimbers.push(<Climber key={val.key} {...val} />);
+    returnClimbers.push(
+      <Climber key={val.key} {...val} number={returnClimbers.length + 1} />
+    );
   });
   return (
     <>
@@ -53,11 +54,34 @@ const scoreToInt = (a) => {
   return aIntScore;
 };
 
+/** sets the conditional syling of the lead scoreboard */
+
 const Climber = (props) => {
+  let scoreFontStyle = {
+    width: "65%",
+    textAlign: "left",
+    tranisiton: "all, 1s"
+  };
+  if (props.hasClimbed) {
+    scoreFontStyle["color"] = "#FFFFFF";
+    scoreFontStyle["fontWeight"] = 200;
+  } else if (props.isClimbing) {
+    scoreFontStyle["color"] = "#FFBB38";
+    scoreFontStyle["fontWeight"] = 400;
+  } else {
+    scoreFontStyle["color"] = "#858585";
+    scoreFontStyle["fontWeight"] = 200;
+  }
   if (props.climberName) {
     return (
       <div className="score-pane">
-        <p className="score-climber">{props.climberName}</p>
+        <span className="lead-number" style={{ width: "10%" }}>
+          {" "}
+          {props.hasClimbed ? `${props.number}.` : ""}{" "}
+        </span>
+        <p className="score-climber" style={scoreFontStyle}>
+          {props.climberName}
+        </p>
         {props.hasClimbed ? (
           <span className="lead-score">{props.score}</span>
         ) : (

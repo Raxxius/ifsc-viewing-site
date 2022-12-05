@@ -78,7 +78,7 @@
   height: 100%;
   width: 100%;
   color: #FFFFFF;
-  font-weight: 700;
+  font-weight: 500;
   overflow: scroll;
 }
 
@@ -92,8 +92,7 @@
 
 .score-pane {
   display: flex;
-  justify-content: space-between;
-  width: 75%;
+  width: 85%;
   margin-left: 10%;
 }
 
