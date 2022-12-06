@@ -14,25 +14,45 @@
   display: flex;
 }
 
-.navbar p {
-  margin: auto;
-  font-weight: 700;
-  font-size: 20px;
-}
-
-.menu {
-  display: flex;
-  margin-left: 180px;
-}
-
-.menu p {
-  padding: 15px
-}
-
 .logo {
-  height: 80px;
-  padding-left: 35px;
+  margin-right: 100px;
 }
+
+.nav-dropdown {
+  background-color: #3C3C3C;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  z-index: 99;
+}
+
+.nav-dropbtn {
+  background-color: #3C3C3C;
+  height: 85px;
+  border: none;
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  z-index: 99;
+}
+
+.nav-dropdown-content {
+  z-index: 9999;
+  font-size: 1.2rem;
+  height: 3rem;
+  background-color: #262626;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-dropdown:hover .nav-dropdown-content{
+  display: flex;
+}
+
+.nav-dropbtn:hover {
+  background-color: #262626;
+}
+
 
 /** Viewbox CSS **/
 
@@ -67,6 +87,7 @@
   padding: 0;
   width: auto;
   height: calc(75vw / (16/9));
+  z-index: 1;
 }
 
 /** Scoreboard CSS **/

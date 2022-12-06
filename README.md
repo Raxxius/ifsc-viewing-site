@@ -1,6 +1,6 @@
 # International Federation of Sports Climbing competition viewing website
 
-This projects goals are to design, develop and launch a website for viewing International Federation of Sports Climbing (IFSC) events, while providing information on the active climbers and a score in realtime. 
+This projects goals are to design, develop and launch a website for viewing International Federation of Sports Climbing (IFSC) events, while providing information on the active climbers and a score in realtime.
 
 Events videos are hosted on YouTube, and YouTube will be the source of the videos. Additional functionality from YouTube will be required to enhance the viewer experience.
 
@@ -84,9 +84,7 @@ from the required UserStories, YouTube has the following assesement
 
 :heavy_check_mark: I want my position saved so that if I leave the site and return I can continue watching at the position that I left.
 
-
 Twitch has a lot of features that match for the project
-
 
 ## Lolesport
 
@@ -104,7 +102,6 @@ Another esports site
 
 The Lolesport website has all the features match
 
-
 # Website design
 
 The basic layout of the website will comprise 4 components
@@ -117,11 +114,10 @@ The basic layout of the website will comprise 4 components
 
 4. Climber information panel - dynamically update with video timestamp via external API.
 
-
-
-
-
 References
 
 usehooks.com for basic REACT hooks
 https://usehooks.com/useWindowSize/
+
+Icon by <a href="https://freeicons.io/profile/3">icon king1</a> on <a href="https://freeicons.io">freeicons.io</a>
+
