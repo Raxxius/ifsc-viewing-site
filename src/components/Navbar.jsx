@@ -7,12 +7,19 @@ function Navbar() {
       <img src={Logo} className="logo" alt="logo" />
       <div className="menu">
         <div className="nav-dropdown">
-          <button className="nav-dropbtn">Competitions <img src={Dropdown} alt="dropdown tag"></img></button>
+          <button className="nav-dropbtn">
+            Competitions <img src={Dropdown} alt="dropdown tag"></img>
+          </button>
           <div className="nav-dropdown-content">
-          <p>2022</p>
+            <p>2022</p>
+          </div>
+          <div className="nav-dropdown-content">
+            <p>2021</p>
+          </div>
+          <div className="nav-dropdown-content">
+            <p>2020</p>
+          </div>
         </div>
-        </div>
-
       </div>
     </div>
   );
