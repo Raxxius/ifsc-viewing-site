@@ -7,18 +7,38 @@ function Navbar() {
       <img src={Logo} className="logo" alt="logo" />
       <div className="menu">
         <div className="nav-dropdown">
-          <button className="nav-dropbtn">
+          <ul className="nav-dropbtn">
             Competitions <img src={Dropdown} alt="dropdown tag"></img>
-          </button>
-          <div className="nav-dropdown-content">
-            <p>2022</p>
-          </div>
-          <div className="nav-dropdown-content">
-            <p>2021</p>
-          </div>
-          <div className="nav-dropdown-content">
-            <p>2020</p>
-          </div>
+            <li className="nav-dropdown-content">
+              2022
+              <ul className="nav-dropdown-side-content">
+                <li className="nav-dropdown-side-option">Moscow</li>
+                <li className="nav-dropdown-side-option">Kranj</li>
+                <li className="nav-dropdown-side-option">Briancon</li>
+                <li className="nav-dropdown-side-option">Chamonix</li>
+                <li className="nav-dropdown-side-option">Villars</li>
+                <li className="nav-dropdown-side-option">Innsbruck</li>
+                <li className="nav-dropdown-side-option">Salt Lake</li>
+                <li className="nav-dropdown-side-option">Meiringen</li>
+              </ul>
+            </li>
+            <li className="nav-dropdown-content">
+              2021
+              <ul className="nav-dropdown-side-content">
+                <li className="nav-dropdown-side-option">Moscow</li>
+                <li className="nav-dropdown-side-option">Kranj</li>
+                <li className="nav-dropdown-side-option">Briancon</li>
+                <li className="nav-dropdown-side-option">Chamonix</li>
+                <li className="nav-dropdown-side-option">Villars</li>
+                <li className="nav-dropdown-side-option">Innsbruck</li>
+                <li className="nav-dropdown-side-option">Salt Lake</li>
+                <li className="nav-dropdown-side-option">Meiringen</li>
+              </ul>
+            </li>
+            <li className="nav-dropdown-content">
+              2020
+            </li>
+          </ul>
         </div>
       </div>
     </div>
