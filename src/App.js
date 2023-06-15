@@ -43,15 +43,6 @@ function App() {
     }
   }, [time, videoPlaying]);
 
-  /** test code for visability to be removed in final build */
-  function TestTrue(props) {
-    if (props.videoPlaying) {
-      return <span>Video is playing, time is {time}</span>;
-    } else {
-      return <span> video is not playing</span>;
-    }
-  }
-
   /** core render section */
 
   return (
@@ -72,9 +63,6 @@ function App() {
             stopPlaying={stopPlaying}
             time={time}
           />
-          <div>
-            <TestTrue videoPlaying={videoPlaying} />
-          </div>
           <ClimberStat />
         </div>
       </div>

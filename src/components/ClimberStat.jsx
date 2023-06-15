@@ -1,8 +1,10 @@
 
-function ClimberStat() {
+function ClimberStat(props) {
     return (
       <div className="climberstat">
-        <p> climber stats </p>
+        <h1 className="climber-name">{props.climberName}</h1>
+        <div className="climber-stats">{props.climberStats}</div>
+        <div className="social-media">{props.climberSocial}</div>
       </div>
     );
   }

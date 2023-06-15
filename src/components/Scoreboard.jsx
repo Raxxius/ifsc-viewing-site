@@ -1,6 +1,6 @@
-import ScoreBoardConstructor from "../functions/ScoreBoardConstructor";
-import { BoulderScore } from "../functions/BoulderScore";
-import { LeadScore } from "../functions/LeadScore";
+import ScoreBoardConstructor from "../hooks/ScoreBoardConstructor";
+import { BoulderScore } from "../hooks/BoulderScore";
+import { LeadScore } from "../hooks/LeadScore";
 
 /** Core Function */
 
