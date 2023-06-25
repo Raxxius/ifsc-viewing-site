@@ -16,7 +16,11 @@ function App() {
   /** Constants */
 
   const style = useViewBoxHeight();
-  const src = dataFromApi2.src;
+
+  /** State management */
+  const [src, setSrc] = useState(dataFromApi1.src);
+  const [data, setData] = useState(dataFromApi1);
+  const [serverData, setServerData] = useState(dataFromServer1);
   const [time, setTime] = useState(0);
   const [videoPlaying, setVideoPlaying] = useState(false);
 
@@ -34,6 +38,18 @@ function App() {
     setTime(time);
   };
 
+  const changeEvent = (e) => {
+    /** working on adding regular expression to this part */
+    const variable = 8
+    let newSrc = new RegExp("\dataFromApi" + e + "\ ");
+    let newData = dataFromApi2;
+    let newServerData = dataFromServer2;
+    console.log(newSrc)
+    setSrc(newSrc);
+    setData(newData);
+    setServerData(newServerData);
+  };
+
   useEffect(() => {
     if (videoPlaying) {
       const interval = setInterval(() => {
@@ -47,12 +63,14 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar 
+        changeEvent={changeEvent}
+      />
       <div className="view-box-parent" style={style}>
         <div className="view-box-1">
           <Scoreboard
-            dataFromServer={dataFromServer2}
-            dataFromApi={dataFromApi2}
+            dataFromServer={serverData}
+            dataFromApi={data}
             time={time}
           />
         </div>
