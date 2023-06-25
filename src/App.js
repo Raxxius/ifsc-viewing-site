@@ -17,10 +17,13 @@ function App() {
 
   const style = useViewBoxHeight();
 
+  const dataFromApi = [dataFromApi1, dataFromApi2]
+  const dataFromServer = [dataFromServer1, dataFromServer2]
+
   /** State management */
-  const [src, setSrc] = useState(dataFromApi1.src);
-  const [data, setData] = useState(dataFromApi1);
-  const [serverData, setServerData] = useState(dataFromServer1);
+  const [src, setSrc] = useState(dataFromApi[0].src);
+  const [data, setData] = useState(dataFromApi[0]);
+  const [serverData, setServerData] = useState(dataFromServer[0]);
   const [time, setTime] = useState(0);
   const [videoPlaying, setVideoPlaying] = useState(false);
 
@@ -39,12 +42,10 @@ function App() {
   };
 
   const changeEvent = (e) => {
-    /** working on adding regular expression to this part */
-    const variable = 8
-    let newSrc = new RegExp("\dataFromApi" + e + "\ ");
-    let newData = dataFromApi2;
-    let newServerData = dataFromServer2;
-    console.log(newSrc)
+    const newSrc = dataFromApi[e-1].src
+    const newData = dataFromApi[e-1]
+    const newServerData = dataFromServer[e-1]
+
     setSrc(newSrc);
     setData(newData);
     setServerData(newServerData);
