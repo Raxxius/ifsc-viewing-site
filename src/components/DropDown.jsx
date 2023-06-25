@@ -2,36 +2,35 @@ import Dropdown from "../resources/images/arrow-drop-down.svg";
 
 
 function DropDown(props) {
-  console.log(props)
   return (
     <nav className="nav-area">
       <ul>
         <li>
-          <a href="#">Competitions <img src={Dropdown} /></a>
+          <button>Competitions <img src={Dropdown} alt=""/></button>
           <ul>
             <li>
-              <a href="#">Lead</a>
+              <button>Lead</button>
               <ul>
                 <li>
-                  <a href="#" onClick={() => props.changeEvent(2)}>Moscow 2021</a>
+                  <button onClick={() => props.changeEvent(2)}>Moscow 2021</button>
                 </li>
               </ul>
             </li>
             <li>
-              <a href="#">Bouldering</a>
+              <button>Bouldering</button>
               <ul>
                 <li>
-                  <a href="#" onClick={() => props.changeEvent(1)}>Moscow 2021</a>
+                  <button onClick={() => props.changeEvent(1)}>Moscow 2021</button>
                 </li>
               </ul>
             </li>
           </ul>
         </li>
         <li>
-          <a href="#">Climbers</a>
+          <button>Climbers</button>
         </li>
         <li>
-          <a href="#">News</a>
+          <button>News</button>
         </li>
       </ul>
     </nav>

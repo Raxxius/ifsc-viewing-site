@@ -7,6 +7,16 @@
 
 /** Navbar CSS **/
 
+button {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
 .navbar {
   background-color: #3C3C3C;
   color: #FFFFFF;
@@ -21,28 +31,33 @@
 .nav-area {
 	background: #262626;
 }
+
 .nav-area:after {
 	content: '';
 	clear: both;
 	display: block;
 }
+
 .nav-area ul {
 	list-style: none;
 	margin: 0;
 }
+
 .nav-area>ul>li {
 	float: left;
 	position: relative;
 }
-.nav-area ul li a {
+
+.nav-area ul li button {
 	text-decoration: none;
-	color: #fff;
 	padding: 15px 20px;
 	display: block;
 }
-.nav-area ul li:hover a {
+
+.nav-area ul li:hover button {
 	background: #34495e;
 }
+
 .nav-area ul ul {
 	position: absolute;
 	padding: 0;
@@ -51,20 +66,25 @@
 	top: 100%;
 	left: 0;
 }
+
 .nav-area ul li:hover>ul {
 	display: block;
 }
-.nav-area ul ul li:hover a {
+
+.nav-area ul ul li:hover button {
 	background: #262626;
 }
+
 .nav-area ul ul li {
 	position: relative;
 }
+
 .nav-area ul ul ul {
 	top: 0;
 	left: 100%;
 }
-.nav-area ul ul ul li:hover a {
+
+.nav-area ul ul ul li:hover button {
 	background: #34495e;
 }
 
