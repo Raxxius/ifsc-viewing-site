@@ -82,7 +82,11 @@ function App() {
             stopPlaying={stopPlaying}
             time={time}
           />
-          <ClimberStat />
+          <ClimberStat 
+            dataFromServer={serverData}
+            time={time}
+            dataFromApi={data}
+          />
         </div>
       </div>
     </div>
